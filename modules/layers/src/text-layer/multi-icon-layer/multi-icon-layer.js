@@ -28,6 +28,7 @@ const DEFAULT_GAMMA = 0.2;
 const DEFAULT_BUFFER = 192.0 / 256;
 
 const defaultProps = {
+  sizeUnits: 'pixels',
   sizeMinPixels: 0,
   sizeMaxPixels: Number.MAX_SAFE_INTEGER,
 
@@ -77,7 +78,7 @@ export default class MultiIconLayer extends IconLayer {
   }
 
   draw({uniforms}) {
-    const {sdf, sizeMinPixels, sizeMaxPixels} = this.props;
+    const {sdf, sizeUnits, sizeMinPixels, sizeMaxPixels} = this.props;
     super.draw({
       uniforms: Object.assign({}, uniforms, {
         // Refer the following doc about gamma and buffer
@@ -85,6 +86,7 @@ export default class MultiIconLayer extends IconLayer {
         buffer: DEFAULT_BUFFER,
         gamma: DEFAULT_GAMMA,
         sdf: Boolean(sdf),
+        sizeInMeters: sizeUnits === 'meters',
         sizeMinPixels,
         sizeMaxPixels
       })

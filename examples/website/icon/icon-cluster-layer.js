@@ -55,17 +55,7 @@ export default class IconClusterLayer extends CompositeLayer {
 
   renderLayers() {
     const {z, version} = this.state;
-    const {
-      data,
-      iconAtlas,
-      iconMapping,
-      sizeMinPixels,
-      sizeMaxPixels,
-      sizeScale,
-      getPosition,
-      onHover,
-      onClick
-    } = this.props;
+    const {data, iconAtlas, iconMapping, sizeScale, getPosition, onHover, onClick} = this.props;
 
     return new IconLayer(
       this.getSubLayerProps({
@@ -74,8 +64,6 @@ export default class IconClusterLayer extends CompositeLayer {
         iconAtlas,
         iconMapping,
         sizeScale,
-        sizeMinPixels,
-        sizeMaxPixels,
         getPosition,
         getIcon: d => d.zoomLevels[z] && d.zoomLevels[z].icon,
         getSize: d => d.zoomLevels[z] && d.zoomLevels[z].size,
@@ -116,7 +104,7 @@ export default class IconClusterLayer extends CompositeLayer {
     tree.load(data);
 
     for (let z = 0; z <= 20; z++) {
-      const radius = sizeScale / Math.pow(2, 15) / Math.pow(2, z);
+      const radius = sizeScale / Math.sqrt(2) / Math.pow(2, z);
 
       data.forEach(p => {
         if (p.zoomLevels[z] === undefined) {

@@ -58,6 +58,7 @@ const FONT_SETTINGS_PROPS = ['fontSize', 'buffer', 'sdf', 'radius', 'cutoff'];
 const defaultProps = {
   fp64: false,
   sizeScale: 1,
+  sizeUnits: 'pixels',
   sizeMinPixels: 0,
   sizeMaxPixels: Number.MAX_SAFE_INTEGER,
 
@@ -248,6 +249,7 @@ export default class TextLayer extends CompositeLayer {
       fp64,
       sdf,
       sizeScale,
+      sizeUnits,
       sizeMinPixels,
       sizeMaxPixels,
       transitions,
@@ -271,6 +273,7 @@ export default class TextLayer extends CompositeLayer {
         getPixelOffset: this._getAccessor(getPixelOffset),
         fp64,
         sizeScale: sizeScale * scale,
+        sizeUnits,
         sizeMinPixels: sizeMinPixels * scale,
         sizeMaxPixels: sizeMaxPixels * scale,
 

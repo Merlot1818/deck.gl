@@ -62,6 +62,12 @@ Inherits from all [Base Layer](/docs/api-reference/layer.md) and [CompositeLayer
 
 Text size multiplier.
 
+##### `sizeUnits` (String, optional)
+
+* Default: `pixels` 
+
+One of `pixels` or `meters`.
+
 ##### `sizeMinPixels` (Number, optional)
 
 * Default: `1`
@@ -129,7 +135,7 @@ Method called to retrieve the location of each text label.
 
 * Default: `32`
 
-The font size of each text label, in meters.
+The font size of each text label, in pixels.
 
 * If a number is provided, it is used as the size for all objects.
 * If a function is provided, it is called on each object to retrieve its size.

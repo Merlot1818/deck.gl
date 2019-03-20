@@ -47,7 +47,7 @@ export class App extends Component {
 
     const {x, y, object} = info;
     const z = info.layer.state.z;
-    const {showCluster} = this.props;
+    const {showCluster = true} = this.props;
 
     let hoveredItems = null;
 
@@ -124,7 +124,7 @@ export class App extends Component {
       data = DATA_URL,
       iconMapping = 'data/location-icon-mapping.json',
       iconAtlas = 'data/location-icon-atlas.png',
-      showCluster,
+      showCluster = true,
       viewState
     } = this.props;
 
@@ -137,9 +137,7 @@ export class App extends Component {
       iconMapping,
       onHover: this._onHover,
       onClick: this._onClick,
-      sizeMinPixels: 0,
-      sizeMaxPixels: 2000000,
-      sizeScale: 1048576
+      sizeScale: 60
     };
 
     const size = viewState ? Math.min(Math.pow(1.5, viewState.zoom - 10), 1) : 0.1;

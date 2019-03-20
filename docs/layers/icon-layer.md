@@ -156,6 +156,12 @@ given pre-packed `iconAtlas`.
 
 Icon size multiplier.
 
+##### `sizeUnits` (String, optional)
+
+* Default: `pixels` 
+
+One of `pixels` or `meters`.
+
 ##### `sizeMinPixels` (Number, optional)
 
 * Default: `1`
@@ -207,7 +213,7 @@ Method called to retrieve the position of each object, returns `[lng, lat, z]`.
 
 - Default: `1`
 
-The height of each object, in meters.
+The height of each object, in pixels.
 
 - If a number is provided, it is used as the size for all objects.
 - If a function is provided, it is called on each object to retrieve its size.
